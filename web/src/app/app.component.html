@@ -1,0 +1,32 @@
+<!-- 
+<a [routerLink]="['/auth']" [queryParams]="{debug: true}" fragment="education">
+    link to user component
+  </a> -->
+<div>
+
+    <a [routerLink]="['/auth']">
+        Auth
+    </a>
+</div>
+
+
+<router-outlet></router-outlet>
+
+<style>
+    div{
+        padding: 10px;
+    }
+    a {
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        transition: 300ms;
+        font-weight: bolder;
+    }
+
+    a:hover {
+        background-color: #444;
+    }
+</style>
