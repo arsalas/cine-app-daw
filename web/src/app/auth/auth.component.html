@@ -1,32 +1,35 @@
-<p>auth works!</p>
+<div class="container">
 
-<p>
-    {{data | json}}
-</p>
+    <p>auth works!</p>
 
-<iframe width="560" height="315" [src]="url" title="YouTube video player"
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+    <p>
+        {{data | json}}
+    </p>
 
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+    <iframe width="560" height="315" [src]="url" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
 
-    <div>
-        <label for="name">
-            Name
-        </label>
-        <input id="name" type="text" formControlName="name">
-    </div>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
-    <div>
-        <label for="address">
-            Address
-        </label>
-        <input id="address" type="text" formControlName="address">
-    </div>
+        <div>
+            <label for="name">
+                Name
+            </label>
+            <input id="name" class="input" type="text" formControlName="name">
+        </div>
 
-    <button class="button" type="submit">Purchase</button>
+        <div>
+            <label for="address">
+                Address
+            </label>
+            <input id="address" class="input" type="text" formControlName="address">
+        </div>
 
-</form>
-<a [routerLink]="['/']">
-    link to user component
-</a>
+        <button class="button" type="submit">Purchase</button>
+
+    </form>
+    <a [routerLink]="['/']">
+        link to user component
+    </a>
+</div>
