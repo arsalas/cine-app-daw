@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h1 class="title">Estrenos</h1>
+
+    <div class="columns is-multiline">
+        <div *ngFor="let movie of nowPlaying" class="column is-2">
+
+            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+                [voteAverage]="movie.voteAverage"></app-card>
+        </div>
+    </div>
+
+    <h1 class="title">Populares</h1>
+
+    <div class="columns is-multiline">
+        <div *ngFor="let movie of populars" class="column is-2">
+            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+                [voteAverage]="movie.voteAverage"></app-card>
+        </div>
+    </div>
+</div>

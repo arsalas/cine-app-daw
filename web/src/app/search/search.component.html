@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div>
+
+            <input class="input is-rounded" placeholder="Buscar pelicula" type="text" formControlName="query"
+                title="search">
+        </div>
+    </form>
+
+    <div class="columns is-multiline mt-5">
+        <div *ngFor="let movie of movies" class="column is-2">
+
+            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+                [voteAverage]="movie.voteAverage"></app-card>
+
+        </div>
+    </div>
+
+
+
+</div>

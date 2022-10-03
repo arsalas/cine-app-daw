@@ -28,8 +28,8 @@ class MovieRoutes
         if ($endpoint[0] == 'search')
             return $this->ctrl->searchMovie(Request::getQueryStrings());
         // POPULARES
-        if ($endpoint[0] == 'populars');
-        return $this->ctrl->getPopulars(Request::getQueryStrings());
+        if ($endpoint[0] == 'populars')
+            return $this->ctrl->getPopulars(Request::getQueryStrings());
         // RECIENTES
         if ($endpoint[0] == 'now_playing')
             return $this->ctrl->getNowPlaying(Request::getQueryStrings());

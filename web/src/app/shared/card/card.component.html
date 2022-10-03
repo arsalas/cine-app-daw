@@ -1,0 +1,19 @@
+<div class="card cover-cart">
+    <figure class="image is-2by3">
+        <img [src]="posterPath" alt="Placeholder image" (error)="posterPath = 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png'" >
+    </figure>
+    <div class="cover-info">
+        <div class="cover-title"> {{title}}</div>
+        <div class="description">{{overview}}</div>
+        <div class="average">
+
+            <span class="icon-text">
+                <span class="icon has-text-warning">
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>{{voteAverage}}</span>
+            </span>
+        </div>
+
+    </div>
+</div>

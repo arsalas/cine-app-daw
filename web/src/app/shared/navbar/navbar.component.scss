@@ -1,0 +1,20 @@
+.navbar {
+    position: sticky;
+    top: 0px;
+    background-color: var(--bg-primary);
+}
+
+a.navbar-item {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+a.navbar-item:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-hover);
+}
+
+.navbar-start,
+.navbar .full {
+    flex: 1;
+}

@@ -1,0 +1,49 @@
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" [routerLink]="['/']">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item">
+                Estrenos
+            </a>
+            <a class="navbar-item">
+                Populares
+            </a>
+
+            <div class="navbar-item full">
+                <p class="control has-icons-left has-icons-right full">
+                    <input class="input is-small is-rounded" type="text" placeholder="Buscar pelicula" [routerLink]="['/search']">
+                    <span class="icon is-small is-left">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                   
+                  </p>
+            </div>
+
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-info is-rounded">
+                        <strong>Registro</strong>
+                    </a>
+                    <a class="button is-info is-rounded">
+                        <strong>Iniciar Sesion</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

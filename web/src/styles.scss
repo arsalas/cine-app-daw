@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+
+    --bg-primary: #fff;
+    --bg-secondary: #eee;
+    --bg-hover: #ddd;
+    --text-primary: #222;
+    --text-secondary: #333;
+}
+
+body * {
+    transition: 300ms;
+}
+
+body {
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+}
+
+.title {
+    color: var(--text-primary) !important;
+}
+
+.input {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--bg-hover) !important;
+}
+
+.control i {
+    color: var(--text-secondary);
+
+}
+
+
+.input::placeholder {
+    color: var(--text-secondary) !important;
+}
+
+
+/* Cambia los colores en funcion de si estamos en el tema oscuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #333;
+        --bg-secondary: #222;
+        --bg-hover: #444;
+        --text-primary: #fff;
+        --text-secondary: #ccc;
+    }
+}
