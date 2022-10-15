@@ -20,9 +20,6 @@ class ApiController
         $this->language = 'es';
     }
 
-
-
-
     public function request($endpoint, $query = '')
     {
         try {

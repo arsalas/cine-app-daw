@@ -10,14 +10,13 @@ class Request
     static public function getBody()
     {
         $body = $_POST;
+        $payload = file_get_contents('php://input');
+        $body = array_merge($body, json_decode($payload, true));
         $request = new stdClass;
         if (isset($body) && !empty($body)) {
             foreach ($body as $key => $post) {
                 $request->$key = $post;
             }
-        } else {
-            $payload = file_get_contents('php://input');
-            $request = json_decode($payload);
         }
         return $request;
     }
@@ -31,7 +30,7 @@ class Request
     {
         $query = '';
         foreach ($params as $key => $value) {
-           $query .= '&' . $key . '=' . $value;
+            $query .= '&' . $key . '=' . $value;
         }
         return $query;
     }

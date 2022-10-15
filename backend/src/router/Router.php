@@ -2,7 +2,10 @@
 
 namespace Src\Router;
 
+use Src\App\Auth\AuthRoutes;
 use Src\App\Movie\MovieRoutes;
+use Src\App\Profile\ProfileRoutes;
+use Src\App\Review\ReviewRoutes;
 
 class Router
 {
@@ -30,6 +33,15 @@ class Router
             case 'movies':
                 $moviesRouter = new MovieRoutes();
                 return $moviesRouter->start($this->method, $endpoint);
+            case 'auth':
+                $authRouter = new AuthRoutes();
+                return $authRouter->start($this->method, $endpoint);
+            case 'profile':
+                $authRouter = new ProfileRoutes();
+                return $authRouter->start($this->method, $endpoint);
+            case 'review':
+                $authRouter = new ReviewRoutes();
+                return $authRouter->start($this->method, $endpoint);
             default:
                 echo 'NOT FOUND';
                 die();

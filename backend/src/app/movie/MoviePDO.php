@@ -4,9 +4,6 @@ use Src\Config\CONFIG;
 
 class MoviePDO
 {
-
-
-
     static public function search($data)
     {
         $movie = new stdClass;

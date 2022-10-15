@@ -1,14 +1,16 @@
 <?php
 
-namespace Src\App\Auth;
+namespace Src\App\Profile;
 
-class AuthRoutes
+use Src\Middlewares\Middlewares;
+
+class ProfileRoutes
 {
     private $ctrl;
 
     public function __construct()
     {
-        $this->ctrl = new AuthController();
+        $this->ctrl = new ProfileController();
     }
 
     public function start($method, $endpoint)
@@ -22,16 +24,18 @@ class AuthRoutes
 
     private function get($endpoint)
     {
+        if (!isset($endpoint[0])) {
+            Middlewares::auth();
+            return $this->ctrl->get();
+        }
     }
 
     private function post($endpoint)
     {
-        //REGISTER
-        if ($endpoint[0] == 'signin')
-            return $this->ctrl->signin();
-        // LOGIN
-        if ($endpoint[0] == 'login')
-            return $this->ctrl->login();
+        if (!isset($endpoint[0])) {
+            Middlewares::auth();
+            return $this->ctrl->update();
+        }
     }
     private function put($endpoint)
     {
