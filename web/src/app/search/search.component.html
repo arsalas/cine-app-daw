@@ -1,20 +1,71 @@
 <div class="container">
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
-        <div>
-
-            <input class="input is-rounded" placeholder="Buscar pelicula" type="text" formControlName="query"
-                title="search">
+        <div class="mt-4">
+            <input type="email" class="form-control" formControlName="query" placeholder="Buscar pelicula">
         </div>
     </form>
 
-    <div class="columns is-multiline mt-5">
-        <div *ngFor="let movie of movies" class="column is-2">
 
-            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
-                [voteAverage]="movie.voteAverage"></app-card>
 
+    <div class="container mt-4">
+
+        <h1 class="title text-center">Busqueda: {{query}}</h1>
+
+        <div class="row justify-content-center">
+            <div *ngFor="let movie of movies" class="col-2 p-2">
+
+                <app-card [id]="movie.id" [title]="movie.title" [posterPath]="movie.posterPath"
+                    [overview]="movie.overview" [voteAverage]="movie.voteAverage"></app-card>
+            </div>
         </div>
+
+
+
+        <!-- <button class="btn btn-primary" (click)="loadPage()">Mas resultados</button> -->
+
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center" *ngIf="totalPages <= 5">
+
+                <li [class]="{active: page == 1}" class="page-item">
+                    <a (click)="navigate(1)" class=" page-link">1</a>
+                </li>
+                <li *ngIf="totalPages >= 2" [class]="{active: page == 2}" class="page-item">
+                    <a (click)="navigate(2)" class=" page-link">2</a>
+                </li>
+                <li *ngIf="totalPages >= 3" [class]="{active: page == 3}" class="page-item">
+                    <a (click)="navigate(3)" class=" page-link">3</a>
+                </li>
+                <li *ngIf="totalPages >= 4" [class]="{active: page == 4}" class="page-item">
+                    <a (click)="navigate(4)" class=" page-link">4</a>
+                </li>
+                <li *ngIf="totalPages >= 5" [class]="{active: page == 5}" class="page-item">
+                    <a (click)="navigate(5)" class=" page-link">5</a>
+                </li>
+
+            </ul>
+
+            <ul class="pagination justify-content-center" *ngIf="totalPages > 5">
+
+                <li *ngIf="page > 1" class="page-item">
+                    <a (click)="navigate(1)" class="page-link" >1</a>
+                </li>
+                <li *ngIf="page - 1 > 1" class="page-item">
+                    <a (click)="navigate(page - 1)" class="page-link" >{{page - 1}}</a>
+                </li>
+                <li class="page-item active">
+                    <a (click)="navigate(page)" class="page-link" >{{page}}</a>
+                </li>
+                <li *ngIf="page + 1 < totalPages" class="page-item">
+                    <a (click)="navigate(page - 0 + 1)" class="page-link" >{{page - 0 + 1}}</a>
+                </li>
+                <li *ngIf="page < totalPages" class="page-item">
+                    <a (click)="navigate(totalPages)" class="page-link" >{{totalPages}}</a>
+                </li>
+
+            </ul>
+        </nav>
+
     </div>
 
 

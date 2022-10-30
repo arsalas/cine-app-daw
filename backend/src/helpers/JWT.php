@@ -11,7 +11,7 @@ class JWT
         $header = array('alg' => "HS256", 'typ' => "JWT");
         $header = base64_encode(json_encode($header));
         $payload = base64_encode(json_encode($payload));
-        $signature = $header . "." . $payload . "." . CONFIG::$SECRET_KEY;
+        $signature = $header . "." . $payload . "." . CONFIG::SECRET_KEY;
         $signature = hash('sha256', $signature);
         return $header . "." . $payload . "." . $signature;
     }

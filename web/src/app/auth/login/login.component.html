@@ -1,0 +1,31 @@
+<div class="login">
+
+    <h1 class="mb-4 text-center">Iniciar Sesion</h1>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo</label>
+            <input formControlName="email" type="email" class="form-control" placeholder="email@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input formControlName="password" type="password" class="form-control" placeholder="password">
+        </div>
+        <div class="d-grid mt-4">
+            <input type="submit" class="btn btn-primary" value="Entrar">
+        </div>
+
+
+    </form>
+
+    <div *ngIf="haveErrorsLogin" class="alert alert-danger mt-3" role="alert">
+        Correo o contrasena incorrecta
+    </div>
+
+    <div class="mt-4 mb-2 text-center">
+        <a [routerLink]="['/auth/sign-in']" type="button">Registrate</a>
+    </div>
+
+    <div></div>
+</div>

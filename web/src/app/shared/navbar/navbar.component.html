@@ -1,49 +1,42 @@
-<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" [routerLink]="['/']">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo">
-        </a>
+<nav class="navbar">
+    <a class="brand" [routerLink]="['/']">
+        CINE APP
+    </a>
+    <!-- <div class="nav-items">
+        <ul>
+            <li>
+                CARTELERA
+            </li>
+            <li>
+                POPULARES
+            </li>
+        </ul>
+    </div> -->
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <input formControlName="search" class="form-control form-control-sm" type="search" placeholder="Buscar pelicula" aria-label="Search">
+    </form>
+
+    <div class="buttons" *ngIf="!isAuth; else loggedOut">
+        <a [routerLink]="['/auth/log-in']" type="button" class="btn btn-primary btn-sm">Iniciar Sesion</a>
+        <a [routerLink]="['/auth/sign-in']" type="button" class="btn btn-secondary btn-sm">Registro</a>
     </div>
+    <ng-template #loggedOut>
+        <ul class="navbar-nav navbar-avatar">
+            <li class="nav-item dropdown">
+                <a (click)="toggleDdMenu()" class="nav-link dropdown-toggle p-0" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img *ngIf="avatar" [src]="avatar" alt="">
+                    <img *ngIf="!avatar" src="https://hwchamber.co.uk/wp-content/uploads/2022/04/avatar-placeholder.gif" alt="">
+                </a>
+                <ul (click)="toggleDdMenu()"  class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end" [ngClass]="{show: isDdMenuOpen}">
+                    <li><a [routerLink]="['/profile']" class="dropdown-item" >Perfil</a></li>
+                    <li><a  [routerLink]="['/favorites']" class="dropdown-item">Favoritos</a></li>
+                    <!-- <li><a class="dropdown-item" >Resenas</a></li> -->
+                    <li><a (click)="closeSession()" class="dropdown-item" >Cerrar sesion</a></li>
+                </ul>
+            </li>
+        </ul>
+    </ng-template>
 
-    <div class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item">
-                Estrenos
-            </a>
-            <a class="navbar-item">
-                Populares
-            </a>
-
-            <div class="navbar-item full">
-                <p class="control has-icons-left has-icons-right full">
-                    <input class="input is-small is-rounded" type="text" placeholder="Buscar pelicula" [routerLink]="['/search']">
-                    <span class="icon is-small is-left">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </span>
-                   
-                  </p>
-            </div>
-
-
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-info is-rounded">
-                        <strong>Registro</strong>
-                    </a>
-                    <a class="button is-info is-rounded">
-                        <strong>Iniciar Sesion</strong>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </nav>

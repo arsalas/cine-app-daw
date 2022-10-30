@@ -48,7 +48,7 @@ class MovieController
         if (!isset($request->query)) return false;
         $query = array(
             'query' => str_replace(' ', '%20', $request->query),
-            'page' => isset($query['page']) ? $request->page : 1
+            'page' => isset($request->page) ? $request->page : 1
         );
         $response = $this->service->searchMovie($query);
         Response::json(200, $response);

@@ -13,18 +13,52 @@ class ReviewService
         $this->model = new ReviewModel();
     }
 
-    public function update($userId, $name, $avatar)
+    public function getByUser($userId)
     {
-        // $res = $this->model->insertOrUpdate($userId, $name, $avatar);
-        // if (!$res)
-        //     throw new Exception("Something is wrong", 1);
+        $res = $this->model->selectAllByUser($userId);
+        if (!isset($res))
+            throw new Exception("Something is wrong", 1);
+        return $res;
     }
 
-    public function get($userId)
+    public function getByMovie($movieId)
     {
-        $res = $this->model->selectOne($userId);
-        if (!$res)
+        $res = $this->model->selectAllByMovie($movieId);
+        if (!isset($res))
             throw new Exception("Something is wrong", 1);
-        return ReviewPDO::profile($res);
+        return ReviewPDO::review($res);
+    }
+
+    public function create($userId, $movieId, $content, $score)
+    {
+        $params = array(
+            'userId' => $userId,
+            'movieId' => $movieId,
+            'content' => $content,
+            'score' => $score
+        );
+        $res = $this->model->insert($params);
+        if (!isset($res))
+            throw new Exception("Something is wrong", 1);
+    }
+
+    public function update($userId, $movieId, $content, $score)
+    {
+        $params = array(
+            'userId' => $userId,
+            'movieId' => $movieId,
+            'content' => $content,
+            'score' => $score
+        );
+        $res = $this->model->update($params);
+        if (!isset($res))
+            throw new Exception("Something is wrong", 1);
+    }
+
+    public function delete($userId, $movieId)
+    {
+        $res = $this->model->delete($userId, $movieId);
+        if (!isset($res))
+            throw new Exception("Something is wrong", 1);
     }
 }

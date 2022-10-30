@@ -18,11 +18,11 @@ class DatabaseConnector
 
     public function __construct()
     {
-        $this->driver = CONFIG::$DB_DRIVER;
-        $this->host =CONFIG::$DB_HOST;
-        $this->user = CONFIG::$DB_USERNAME;
-        $this->pass = CONFIG::$DB_PASSWORD;
-        $this->dbName =CONFIG::$DB_DATABASE;
+        $this->driver = CONFIG::DB_DRIVER;
+        $this->host =CONFIG::DB_HOST;
+        $this->user = CONFIG::DB_USERNAME;
+        $this->pass = CONFIG::DB_PASSWORD;
+        $this->dbName =CONFIG::DB_DATABASE;
         $this->charset = "utf8";
         $this->options = [
             PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements

@@ -4,13 +4,19 @@ namespace Src\Config;
 
 class CONFIG
 {
-    static public $SECRET_KEY = '$CINEAPP2022$';
-    static public $API_URL = 'https://api.themoviedb.org';
-    static public $API_IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face';
+    const SECRET_KEY = '$CINEAPP2022$';
+    const API_URL = 'https://api.themoviedb.org';
+    const API_IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face';
+    const API_IMG_URL_BACKDROP = 'https://image.tmdb.org/t/p/w500';
 
-    static public $DB_DRIVER = 'mysql';
-    static public $DB_HOST = 'localhost';
-    static public $DB_USERNAME = 'root';
-    static public $DB_PASSWORD = '';
-    static public $DB_DATABASE = 'cine_app';
+    const IMG_URL = 'http://localhost/cine-app/backend/images/';
+
+    const DB_DRIVER = 'mysql';
+    const DB_HOST = 'localhost';
+    const DB_USERNAME = 'root';
+    const DB_PASSWORD = '';
+    const DB_DATABASE = 'cine_app';
+
+    const IMAGES = "./images/";
+    const MEDIA_MAX_WIDTH = array('thumb' => 150);
 }

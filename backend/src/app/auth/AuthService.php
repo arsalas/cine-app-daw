@@ -18,8 +18,8 @@ class AuthService
     public function signin($email, $password)
     {
         $res = $this->model->insert($email, Helpers::encryptPassword($password));
-        if (!$res)
-            throw new Exception("Something is wrong", 1);
+        if (!$res) throw new Exception("Something is wrong", 1);
+        
     }
 
     public function login($email, $password)

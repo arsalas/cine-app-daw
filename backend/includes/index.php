@@ -6,6 +6,8 @@ require_once(dirname(__FILE__, 2) . '/src/config/index.php');
 // DATABASE
 require_once(dirname(__FILE__, 2) . '/src/database/DbConnector.php');
 
+require_once(dirname(__FILE__, 2) . '/src/controllers/ImageController.php');
+
 // ROUTER
 require_once(dirname(__FILE__, 2) . '/src/router/Router.php');
 
@@ -18,6 +20,7 @@ require_once(dirname(__FILE__, 2) . '/src/helpers/Request.php');
 require_once(dirname(__FILE__, 2) . '/src/helpers/Response.php');
 require_once(dirname(__FILE__, 2) . '/src/helpers/Helpers.php');
 require_once(dirname(__FILE__, 2) . '/src/helpers/JWT.php');
+require_once(dirname(__FILE__, 2) . '/src/helpers/Images.php');
 
 // API
 require_once(dirname(__FILE__, 2) . '/src/api/ApiController.php');
@@ -41,6 +44,13 @@ require_once(dirname(__FILE__, 2) . '/src/app/review/ReviewModel.php');
 require_once(dirname(__FILE__, 2) . '/src/app/review/ReviewService.php');
 require_once(dirname(__FILE__, 2) . '/src/app/review/ReviewRoutes.php');
 require_once(dirname(__FILE__, 2) . '/src/app/review/ReviewPDO.php');
+
+// FAVORITE
+require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoriteController.php');
+require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoriteModel.php');
+require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoriteService.php');
+require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoriteRoutes.php');
+require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoritePDO.php');
 
 // MOVIES
 require_once(dirname(__FILE__, 2) . '/src/app/movie/MovieController.php');

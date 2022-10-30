@@ -2,15 +2,24 @@
 
 namespace Src\App\Review;
 
+use Src\Config\CONFIG;
 use stdClass;
 
 class ReviewPDO
 {
-    static public function profile($data)
+    static public function review($data)
     {
-        $profile = new stdClass;
-        $profile->name = $data->name;
-        $profile->avatar = $data->avatar;
-        return $profile;
+        $reviews =  array_map(function ($arr) {
+            $review = new stdClass;
+            $review->movieId = $arr->movieId;
+            $review->userId = $arr->userId;
+            $review->content = $arr->content;
+            $review->score = $arr->score;
+            $review->createdAt = $arr->createdAt;
+            $review->name = $arr->name;
+            $review->avatar = CONFIG::IMG_URL . 'thumb_' . $arr->avatar;
+            return $review;
+        }, $data);
+        return $reviews;
     }
 }

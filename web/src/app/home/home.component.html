@@ -1,20 +1,20 @@
-<div class="container">
+<div class="container mt-4">
 
-    <h1 class="title">Estrenos</h1>
+    <h1 class="title text-center">Peliculas en cartelera</h1>
 
-    <div class="columns is-multiline">
-        <div *ngFor="let movie of nowPlaying" class="column is-2">
+    <div class="row justify-content-center">
+        <div *ngFor="let movie of nowPlaying" class="col-2 p-2">
 
-            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+            <app-card [id]="movie.id" [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
                 [voteAverage]="movie.voteAverage"></app-card>
         </div>
     </div>
 
-    <h1 class="title">Populares</h1>
+    <h1 class="title text-center mt-4">Peliculas populares</h1>
 
-    <div class="columns is-multiline">
-        <div *ngFor="let movie of populars" class="column is-2">
-            <app-card [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+    <div class="row justify-content-center">
+        <div *ngFor="let movie of populars" class="col-2 p-2">
+            <app-card [id]="movie.id" [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
                 [voteAverage]="movie.voteAverage"></app-card>
         </div>
     </div>

@@ -8,7 +8,7 @@ use Src\Database\DatabaseConnector;
 class ReviewModel
 {
     private $db;
-    private $table = 'review';
+    private $table = 'reviews';
 
     public function __construct($db = null)
     {
@@ -39,7 +39,11 @@ class ReviewModel
     {
         try {
             $pdo = $this->db->getConn();
-            $query = "SELECT * FROM $this->table WHERE movieId = :movieId";
+            $query = "SELECT t1.*, t2.name, t2.avatar FROM $this->table t1
+            INNER JOIN profile t2 ON t1.userId = t2.userId
+            WHERE movieId = :movieId
+            ORDER BY t1.createdAt DESC
+            ";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':movieId', $movieId);
             $result = $stmt->execute();
@@ -104,7 +108,6 @@ class ReviewModel
             $stmt->bindParam(':content', $params['content']);
             $stmt->bindParam(':score', $params['score']);
             $result = $stmt->execute();
-            $result = $stmt->fetchAll();
             return $result;
         } catch (PDOException $e) {
             return false;
@@ -122,7 +125,6 @@ class ReviewModel
             $stmt->bindParam(':userId', $userId);
             $stmt->bindParam(':movieId', $movieId);
             $result = $stmt->execute();
-            $result = $stmt->fetchAll();
             return $result;
         } catch (PDOException $e) {
             return false;

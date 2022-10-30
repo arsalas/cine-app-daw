@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { DataService } from './auth.service';
+// import { DataService } from './auth.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
     url;
 
     constructor(
-        private dataSvc: DataService,
+        // private dataSvc: DataService,
         private formBuilder: FormBuilder,
         private domSanitizer: DomSanitizer
     ) {
@@ -27,7 +27,7 @@ export class AuthComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.dataSvc.getAllUsers().subscribe(data => this.data = data)
+        // this.dataSvc.getAllUsers().subscribe(data => this.data = data)
     }
 
     onSubmit(customerData: any) {

@@ -30,7 +30,16 @@ class MovieService
     {
         $response = $this->api->request('movie/' . $id);
         if (!isset($response) || isset($response->success)) return false;
+        $responseVideos = $this->api->request('movie/' . $id . '/videos');
+        if (isset($responseVideos->results[0])) $response->video = $responseVideos->results[0];
         return MoviePDO::movieDetails($response);
+    }
+
+    public function getBasicMovie($id)
+    {
+        $response = $this->api->request('movie/' . $id);
+        if (!isset($response) || isset($response->success)) return false;
+        return MoviePDO::movie($response);
     }
 
     public function getNowPlaying($params)

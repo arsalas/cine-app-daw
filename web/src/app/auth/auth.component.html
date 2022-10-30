@@ -1,14 +1,19 @@
-<div class="container">
+<div class="auth-container">
 
-    <p>auth works!</p>
+    <!-- <p>auth works!</p> -->
 
-    <p>
+    <div class="auth-box">
+      
+        <router-outlet></router-outlet>
+
+    </div>
+    <!-- <p>
         {{data | json}}
     </p>
 
     <iframe width="560" height="315" [src]="url" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+        allowfullscreen></iframe> -->
 
     <!-- <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
@@ -29,7 +34,4 @@
         <button class="button" type="submit">Purchase</button>
 
     </form> -->
-    <a [routerLink]="['/']">
-        link to user component
-    </a>
 </div>

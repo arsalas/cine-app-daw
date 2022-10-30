@@ -1,0 +1,14 @@
+<div class="container mt-4">
+
+    <h1 class="title text-center">Peliculas favoritas</h1>
+
+    <div class="row justify-content-center">
+        <div *ngFor="let movie of movies" class="col-2 p-2">
+
+            <app-card [id]="movie.id" [title]="movie.title" [posterPath]="movie.posterPath" [overview]="movie.overview"
+                [voteAverage]="movie.voteAverage"></app-card>
+        </div>
+    </div>
+
+    
+</div>

@@ -26,7 +26,7 @@ class MoviePDO
         $movie->originalTitle = $data->original_title;
         $movie->overview = $data->overview;
         $movie->popularity = $data->popularity;
-        $movie->posterPath = CONFIG::$API_IMG_URL . $data->poster_path;
+        $movie->posterPath = CONFIG::API_IMG_URL . $data->poster_path;
         $movie->releaseDate = $data->release_date;
         $movie->tagline = $data->tagline;
         $movie->title = $data->title;
@@ -34,6 +34,8 @@ class MoviePDO
         $movie->voteAverage = $data->vote_average;
         $movie->voteCount = $data->vote_count;
         $movie->budget = $data->budget;
+        $movie->backdrop_path = CONFIG::API_IMG_URL_BACKDROP . $data->backdrop_path;
+        $movie->video = $data->video;
         return $movie;
     }
 
@@ -44,7 +46,7 @@ class MoviePDO
         $movie->originalTitle = $data->original_title;
         $movie->overview = $data->overview;
         $movie->popularity = $data->popularity;
-        $movie->posterPath = CONFIG::$API_IMG_URL . $data->poster_path;
+        $movie->posterPath = CONFIG::API_IMG_URL . $data->poster_path;
         $movie->releaseDate = $data->release_date;
         $movie->title = $data->title;
         $movie->voteAverage = $data->vote_average;

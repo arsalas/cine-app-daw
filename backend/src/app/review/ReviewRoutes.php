@@ -25,11 +25,10 @@ class ReviewRoutes
     {
         if (!isset($endpoint[0]) || isset($endpoint[0]) && empty($endpoint[0])) {
             Middlewares::auth();
-            return $this->ctrl->getAll();
+            return $this->ctrl->getByUser();
         }
         if (isset($endpoint[0]) && !empty($endpoint[0])) {
-            Middlewares::auth();
-            return $this->ctrl->get($endpoint[0]);
+            return $this->ctrl->getByMovie($endpoint[0]);
         }
     }
 

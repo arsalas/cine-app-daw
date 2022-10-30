@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
     }
 
-
     ngOnInit(): void {
         this.movieSvc.getNowPlaying().subscribe(data => {
             this.nowPlaying = data.results.slice(0, this.limit)

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +11,12 @@ import { MovieComponent } from './movie/movie.component';
 import { SharedModule } from './shared/shared.module';
 import { SearchModule } from './search/search.module';
 import { HomeModule } from './home/home.module';
-
+import { LoginComponent } from './auth/login/login.component';
+import { AuthInterceptor } from 'src/helpers/interceptor';
+import { SigninComponent } from './auth/signin/signin.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { FavoritesModule } from './favorites/favorites.module';
 
 
 @NgModule({
@@ -19,6 +24,10 @@ import { HomeModule } from './home/home.module';
         AppComponent,
         AuthComponent,
         MovieComponent,
+        LoginComponent,
+        SigninComponent,
+        ProfileComponent,
+        // FavoritesComponent
     ],
     imports: [
         BrowserModule,
@@ -29,11 +38,18 @@ import { HomeModule } from './home/home.module';
         SharedModule,
         HomeModule,
         SearchModule,
+        // FavoritesModule
     ],
     exports: [
         AppComponent
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

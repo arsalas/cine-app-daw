@@ -4,6 +4,7 @@ import { CardComponent } from './card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { AppRoutingModule } from '../app-routing.module';
     imports: [
         CommonModule,
         AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     exports: [
         CardComponent,

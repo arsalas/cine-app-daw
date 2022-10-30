@@ -11,6 +11,7 @@ class Request
     {
         $body = $_POST;
         $payload = file_get_contents('php://input');
+        if (strlen($payload) == 0) $payload = '{}';
         $body = array_merge($body, json_decode($payload, true));
         $request = new stdClass;
         if (isset($body) && !empty($body)) {

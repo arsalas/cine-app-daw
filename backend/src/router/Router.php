@@ -3,9 +3,11 @@
 namespace Src\Router;
 
 use Src\App\Auth\AuthRoutes;
+use Src\App\Favorite\FavoriteRoutes;
 use Src\App\Movie\MovieRoutes;
 use Src\App\Profile\ProfileRoutes;
 use Src\App\Review\ReviewRoutes;
+use Src\Controllers\ImageController;
 
 class Router
 {
@@ -37,11 +39,17 @@ class Router
                 $authRouter = new AuthRoutes();
                 return $authRouter->start($this->method, $endpoint);
             case 'profile':
-                $authRouter = new ProfileRoutes();
-                return $authRouter->start($this->method, $endpoint);
+                $profileRouter = new ProfileRoutes();
+                return $profileRouter->start($this->method, $endpoint);
             case 'review':
-                $authRouter = new ReviewRoutes();
-                return $authRouter->start($this->method, $endpoint);
+                $reviewRouter = new ReviewRoutes();
+                return $reviewRouter->start($this->method, $endpoint);
+            case 'favorite':
+                $favoriteRouter = new FavoriteRoutes();
+                return $favoriteRouter->start($this->method, $endpoint);
+            case 'images':
+                $imageCtrl = new ImageController();
+                return $imageCtrl->start($this->method, $endpoint);
             default:
                 echo 'NOT FOUND';
                 die();

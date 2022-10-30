@@ -14,7 +14,7 @@ class ApiController
 
     public function __construct()
     {
-        $this->url = CONFIG::$API_URL;
+        $this->url = CONFIG::API_URL;
         $this->version = '3';
         $this->apiKey = '02f8759072418de3732f85461524e6e9';
         $this->language = 'es';

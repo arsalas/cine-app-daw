@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css";
+
 
 :root {
 
@@ -9,34 +11,36 @@
     --text-secondary: #333;
 }
 
-body * {
+body  {
     transition: 300ms;
+    color: var(--text-primary);
+}
+
+
+
+.form-control {
+    background-color: var(--bg-secondary);
+    border-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+.form-control:focus{
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 body {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-secondary) !important;
     min-height: 100vh;
 }
 
 .title {
-    color: var(--text-primary) !important;
-}
-
-.input {
-    background-color: var(--bg-secondary) !important;
-    color: var(--text-primary) !important;
-    border-color: var(--bg-hover) !important;
-}
-
-.control i {
-    color: var(--text-secondary);
-
+    color: var(--text-primary);
 }
 
 
-.input::placeholder {
-    color: var(--text-secondary) !important;
-}
+
+
+
 
 
 /* Cambia los colores en funcion de si estamos en el tema oscuro */
