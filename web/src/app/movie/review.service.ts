@@ -5,36 +5,58 @@ import { API_URL } from "src/config";
 import { IMovieDetails, IReview, NowPlayingI } from "./interfaces";
 
 @Injectable({
-    providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class ReviewService {
-    private urlAPI = API_URL + '/review'
+	private urlAPI = API_URL + '/review'
 
-    constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-    async createReview(params: { movieId: number, content: string, score: number }): Promise<boolean> {
-        try {
-            const response = await this.http.post<{ msg: string }>(`${this.urlAPI}`, params).toPromise();
-            if (!response) throw new Error("");
-            return true;
+	async createReview(params: { movieId: number, content: string, score: number }): Promise<boolean> {
+		try {
+			const response = await this.http.post<{ msg: string }>(`${this.urlAPI}`, params).toPromise();
+			if (!response) throw new Error("");
+			return true;
 
-        } catch (error) {
-            // throw new Error("");
-            return false;
-        }
-    }
+		} catch (error) {
+			// throw new Error("");
+			return false;
+		}
+	}
 
-    async getByMovie(movieId: number): Promise<IReview[]> {
-        try {
-            const response = await this.http.get<IReview[]>(`${this.urlAPI}/${movieId}`).toPromise();
-            if (!response) throw new Error("");
-            return response;
+	async getByMovie(movieId: number): Promise<IReview[]> {
+		try {
+			const response = await this.http.get<IReview[]>(`${this.urlAPI}/${movieId}`).toPromise();
+			if (!response) throw new Error("");
+			return response;
 
-        } catch (error) {
-            throw new Error("");
-        }
-    }
+		} catch (error) {
+			throw new Error("");
+		}
+	}
 
+	async deleteReview(movieId: number): Promise<boolean> {
+		try {
+			const response = await this.http.delete<{ msg: string }>(`${this.urlAPI}/${movieId}`).toPromise();
+			if (!response) throw new Error("");
+			return true;
 
+		} catch (error) {
+			// throw new Error("");
+			return false;
+		}
+	}
+
+	async updateReview(params: { movieId: number, content: string, score: number }): Promise<boolean> {
+		try {
+			const response = await this.http.put<{ msg: string }>(`${this.urlAPI}/${params.movieId}`, params).toPromise();
+			if (!response) throw new Error("");
+			return true;
+
+		} catch (error) {
+			// throw new Error("");
+			return false;
+		}
+	}
 }

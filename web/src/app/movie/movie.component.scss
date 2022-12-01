@@ -116,7 +116,7 @@
     font-size: 1rem;
 }
 
-.review i {
+.review .star {
     color: #ffd700;
 }
 
@@ -149,4 +149,8 @@
 
 .title button{
     margin-left: 1rem;
+}
+
+.pointer{
+	cursor: pointer;
 }

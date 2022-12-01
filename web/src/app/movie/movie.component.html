@@ -1,100 +1,100 @@
 <div *ngIf="movie">
 
-    <div class="backdrop" [ngStyle]="{'background-image':'linear-gradient(rgba(0, 0, 0, 0.25), 
+	<div class="backdrop" [ngStyle]="{'background-image':'linear-gradient(rgba(0, 0, 0, 0.25), 
     rgba(0, 0, 0, 1)), url(' + movie.backdrop_path +')'}">
-        <div class="container pb-3">
-            <h1 class="title">
-                {{movie.title}}
-                <button (click)="removeFavorite()" *ngIf="isFavorite" class="btn btn-danger ">
-                    <i class="fa-solid fa-heart"></i>
-                    Quitar de Favoritos
-                </button>
-                <button (click)="addFavorite()" *ngIf="!isFavorite" class="btn btn-success ">
-                    <i class="fa-regular fa-heart"></i>
-                    Anadir a Favorito
-                </button>
-            </h1>
-            <div class="row">
-                <div class="col-6">
+		<div class="container pb-3">
+			<h1 class="title">
+				{{movie.title}}
+				<button (click)="removeFavorite()" *ngIf="isFavorite && isAuth" class="btn btn-danger ">
+					<i class="fa-solid fa-heart"></i>
+					Quitar de Favoritos
+				</button>
+				<button (click)="addFavorite()" *ngIf="!isFavorite && isAuth" class="btn btn-success ">
+					<i class="fa-regular fa-heart"></i>
+					Añadir a Favorito
+				</button>
+			</h1>
+			<div class="row">
+				<div class="col-6">
 
-                    <div class="subtitle">({{movie.originalTitle}})</div>
-                    <h5 class="tagline">{{movie.tagline}} </h5>
-                </div>
+					<div class="subtitle">({{movie.originalTitle}})</div>
+					<h5 class="tagline">{{movie.tagline}} </h5>
+				</div>
 
-                <div class="col-6" style="align-self: flex-end">
-
-
-                    <div class="row">
-
-                        <div class="rate col-4">
-                            <!-- <h5>Puntuacion en TheMovieDB</h5> -->
-                            <h5>Puntuacion</h5>
-                            <div class="icon-text">
-                                <i class="fa-solid fa-star"></i>
-                                <div>
-                                    <div class="rate p-0 m-0">{{movie.voteAverage}} </div>
-                                    <!-- <div class="total p-0 m-0"> {{movie.voteCount.toLocaleString("es-ES")}}</div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rate col-4">
-                            <h5>Tu puntuacion</h5>
-                            <div class="icon-text">
-                                <i class="fa-regular fa-star"></i>
-                                <div>
-                                    <div *ngIf="isAuth" class="rate">{{userScore}} </div>
-                                    <!-- <div class="rate">{{movie.voteAverage}} </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rate col-4">
-                            <h5>Popularidad</h5>
-                            <div class="icon-text">
-                                <i class="fa-solid fa-ticket"></i>
-                                <div>
-                                    <div class="rate">{{movie.popularity}} </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mt-4">
-
-        <div class="row">
-            <div class="col-6 p-2">
-                <div>
-                    <h5>
-                        Fecha de lanzamiento
-                    </h5>
-                    {{movie.releaseDate.toLocaleDateString()}}
-                </div>
-                <div class="my-2">
-                    <h5>Presupuesto</h5>
-                    {{movie.budget.toLocaleString("es-ES")}}$
-                </div>
-
-                <h5>
-                    Sinopsis
-                </h5>
-                <p class="overview">
-                    {{movie.overview}}
-                </p>
+				<div class="col-6" style="align-self: flex-end">
 
 
+					<div class="row">
+
+						<div class="rate col-4">
+							<!-- <h5>Puntuacion en TheMovieDB</h5> -->
+							<h5>Puntuacion</h5>
+							<div class="icon-text">
+								<i class="fa-solid fa-star"></i>
+								<div>
+									<div class="rate p-0 m-0">{{movie.voteAverage}} </div>
+									<!-- <div class="total p-0 m-0"> {{movie.voteCount.toLocaleString("es-ES")}}</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="rate col-4">
+							<h5>Tu puntuación</h5>
+							<div class="icon-text">
+								<i class="fa-regular fa-star"></i>
+								<div>
+									<div *ngIf="isAuth" class="rate">{{userScore}} </div>
+									<!-- <div class="rate">{{movie.voteAverage}} </div> -->
+								</div>
+							</div>
+						</div>
+						<div class="rate col-4">
+							<h5>Popularidad</h5>
+							<div class="icon-text">
+								<i class="fa-solid fa-ticket"></i>
+								<div>
+									<div class="rate">{{movie.popularity}} </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-4">
+
+		<div class="row">
+			<div class="col-6 p-2">
+				<div>
+					<h5>
+						Fecha de lanzamiento
+					</h5>
+					{{movie.releaseDate.toLocaleDateString()}}
+				</div>
+				<div class="my-2">
+					<h5>Presupuesto</h5>
+					{{movie.budget.toLocaleString("es-ES")}}$
+				</div>
+
+				<h5>
+					Sinopsis
+				</h5>
+				<p class="overview">
+					{{movie.overview}}
+				</p>
 
 
-                <div class="genres">
-                    <h5 *ngFor="let genre of movie.genres"> <span
-                            class="badge rounded-pill text-bg-primary px-3 py-2">{{genre}}</span></h5>
-                </div>
 
-            </div>
-            <div class="col-6 p-2 trailer">
 
-                <!-- <div class="row">
+				<div class="genres">
+					<h5 *ngFor="let genre of movie.genres"> <span
+							class="badge rounded-pill text-bg-primary px-3 py-2">{{genre}}</span></h5>
+				</div>
+
+			</div>
+			<div class="col-6 p-2 trailer">
+
+				<!-- <div class="row">
                     <div class="col-4">
                         <h5>Puntuacion en TheMovieDB</h5>
                         <div class="icon-text">
@@ -125,68 +125,102 @@
                 </div> -->
 
 
-                <h4 class="">Trailer</h4>
-                <div class="trailer">
+				<h4 class="">Trailer</h4>
+				<div class="trailer">
 
-                    <iframe width="560" height="315" [src]="url" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
+					<iframe width="560" height="315" [src]="url" title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
 
 
 
-            <!-- <div *ngIf="isAuth && !isReviewOpen && !userHaveReview">
+			<!-- <div *ngIf="isAuth && !isReviewOpen && !userHaveReview">
                 <button (click)="isReviewOpen = true" type="button" class="btn btn-primary">Agregar resena</button>
             </div>
  -->
-            <div *ngIf="isAuth && !userHaveReview">
-                <h5>Puntuacion</h5>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
-                            <li (click)="countStar(star)"><i class="fa fa-star"
-                                    [class]="{'active-star': star <= starUser}"></i></li>
-                        </ul>
-                    </div>
-                </div>
+			<div *ngIf="isAuth && !userHaveReview">
+				<h5>Puntuacion</h5>
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+							<li (click)="countStar(star)"><i class="fa fa-star"
+									[class]="{'active-star': star <= starUser}"></i></li>
+						</ul>
+					</div>
+				</div>
 
-                <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
-                    <textarea formControlName="review" class="form-control" rows="3"
-                        placeholder="Escibe tu resena"></textarea>
-                    <div class="buttons">
-                        <button type="submit" class="btn btn-primary mr-3 mt-3">Guardar</button>
-                        <!-- <button (click)="isReviewOpen = false" type="button"
+				<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+					<textarea formControlName="review" class="form-control" rows="3"
+						placeholder="Escibe tu resena"></textarea>
+					<div class="buttons">
+						<button type="submit" class="btn btn-primary mr-3 mt-3">Guardar</button>
+						<!-- <button (click)="isReviewOpen = false" type="button"
                             class="btn btn-danger mt-3 ml-3">Cancelar</button> -->
-                    </div>
+					</div>
 
-                </form>
+				</form>
 
-            </div>
-            <h5 class="mt-4">Resenas ({{reviews.length}})</h5>
-            <div *ngFor="let review of reviews" class="review">
-                <div class="media">
-                    <img [src]="review.avatar" alt="">
-                </div>
-                <div class="body">
-                    <div class="title">
-                        <div class="name" [class]="{'text-primary': review.userId === userId}">
-                            {{review.name}}
-                        </div>
-                        <div class="icon-text">
-                            <i class="fa-solid fa-star"></i>
-                            <span class="icon pl-2">{{review.score}}</span>
-                        </div>
-                    </div>
-                    {{formatRelativeTime(review.createdAt)}}
-                    <p class="content mt-2">
-                        {{review.content}}
-                    </p>
-                </div>
-            </div>
-        </div>
+			</div>
+			<h5 class="mt-4">Reseñas ({{reviews.length}})</h5>
+			<div *ngFor="let review of reviews" class="review">
+				<div class="media">
+					<img [src]="review.avatar" alt="">
+				</div>
+				<div class="body">
+					<div class="title">
+						<div class="name" [class]="{'text-primary': review.userId === userId}">
+							{{review.name}}
+						</div>
+						<div class="icon-text">
+							<i class="fa-solid fa-star star"></i>
+							<span class="icon pl-2">{{review.score}}</span>
+						</div>
+						<div (click)="activateEditing(review)" *ngIf="review.userId === userId" class="pointer">
+							<div class="icon-text px-2">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</div>
+						</div>
+						<div (click)="removeReview()" *ngIf="review.userId === userId" class="pointer">
+							<div class="icon-text">
+								<i class="fa-solid fa-trash"></i>
+							</div>
 
-        <!-- <div class="toast show " role="alert" aria-live="assertive" aria-atomic="true">
+						</div>
+					</div>
+					{{formatRelativeTime(review.createdAt)}}
+					<p class="content mt-2" *ngIf="!(isEditing && review.userId === userId)">
+						{{review.content}}
+					</p>
+					<div *ngIf="isEditing && review.userId === userId" >
+
+						<h5>Puntuacion</h5>
+						<div class="row">
+							<div class="col-sm-12">
+								<ul class="list-inline rating-list" *ngFor="let star of stars"
+									style="display: inline-block">
+									<li (click)="countStar(star)"><i class="fa fa-star"
+											[class]="{'active-star': star <= starUser}"></i></li>
+								</ul>
+							</div>
+						</div>
+
+						<form [formGroup]="reviewForm" (ngSubmit)="onSubmitEdit()">
+							<textarea formControlName="review" class="form-control" rows="3"
+								placeholder="Escibe tu resena"></textarea>
+							<div class="buttons">
+								<button type="submit" class="btn btn-primary mr-3 mt-3">Guardar</button>
+								<button (click)="cancelEdit()" class="btn btn-danger mr-3 mt-3">Cancelar</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="toast show " role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto">Bootstrap</strong>
                 <small>11 mins ago</small>
@@ -196,4 +230,4 @@
                 Hello, world! This is a toast message.
             </div>
         </div> -->
-    </div>
+	</div>
