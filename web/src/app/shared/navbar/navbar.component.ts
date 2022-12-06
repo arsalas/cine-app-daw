@@ -9,7 +9,7 @@ import { authStore } from 'src/store/auth';
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 

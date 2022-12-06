@@ -25,7 +25,8 @@ class AuthModel
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $result = $stmt->execute();
-            return $result;
+			$userId = $pdo->lastInsertId();
+            return $userId;
         } catch (PDOException $e) {
             return false;
         } finally {

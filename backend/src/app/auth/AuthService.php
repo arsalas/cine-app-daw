@@ -5,6 +5,7 @@ namespace Src\App\Auth;
 use Exception;
 use Src\Helpers\Helpers;
 use Src\Helpers\JWT;
+use Src\App\Profile\ProfileService;
 
 class AuthService
 {
@@ -17,9 +18,13 @@ class AuthService
 
     public function signin($email, $password)
     {
-        $res = $this->model->insert($email, Helpers::encryptPassword($password));
-        if (!$res) throw new Exception("Something is wrong", 1);
-        
+        $userId = $this->model->insert($email, Helpers::encryptPassword($password));
+		$profile = new ProfileService();
+		try {
+			$res = $profile->update($userId, '', '');
+		} catch (\Throwable $th) {
+			throw new Exception("Something is wrong", 1);
+		}
     }
 
     public function login($email, $password)

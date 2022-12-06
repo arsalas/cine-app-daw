@@ -4,37 +4,19 @@ import { FormBuilder } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-auth',
-    templateUrl: './auth.component.html',
-    styleUrls: ['./auth.component.scss']
+	selector: 'app-auth',
+	templateUrl: './auth.component.html',
+	styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
 
-    data: any[] = [];
-    checkoutForm;
-    url;
 
-    constructor(
-        // private dataSvc: DataService,
-        private formBuilder: FormBuilder,
-        private domSanitizer: DomSanitizer
-    ) {
-        this.url = domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/2GJh4ElbEjA');
-        this.checkoutForm = this.formBuilder.group({
-            name: '',
-            address: ''
-        });
-    }
+	constructor(
+	) {
+	}
 
-    ngOnInit(): void {
-        // this.dataSvc.getAllUsers().subscribe(data => this.data = data)
-    }
+	ngOnInit(): void {
+	}
 
-    onSubmit(customerData: any) {
-        // Process checkout data here
-        // this.items = this.cartService.clearCart();
-        this.checkoutForm.reset();
 
-        console.warn('Your order has been submitted', customerData);
-    }
 }

@@ -1,0 +1,24 @@
+img{
+    width: 150px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-box {
+    max-width: 500px;
+    width: 100%;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+
+.container{
+    width: 100%;
+    height: calc(100vh - 55px);
+    display: flex;
+    margin-top: 3rem;
+    align-items: flex-start;
+    justify-content: center;
+}

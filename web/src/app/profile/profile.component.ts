@@ -5,7 +5,7 @@ import { ProfileService } from './profile.service';
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss']
+    styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
 
@@ -40,8 +40,6 @@ export class ProfileComponent implements OnInit {
             file: file[0]
         });
         console.log(file[0])
-        // this.uploadForm.get('avatar').updateValueAndValidity()
-        // File Preview
         const reader = new FileReader();
         reader.onload = () => {
             this.imageURL = reader.result as string;

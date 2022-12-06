@@ -7,8 +7,6 @@ use Src\Api\ApiController;
 use Src\Helpers\Request;
 use stdClass;
 
-// TODO: comprobar errores
-
 class MovieService
 {
     private $api;
@@ -47,7 +45,6 @@ class MovieService
         $query = Request::createQueryString($params);
         $response = $this->api->request('movie/now_playing', $query);
         if (!isset($response) || isset($response->success)) return false;
-        // TODO validar si quiero paginar esto y agregar query string
         return MoviePDO::nowPlaying($response);
     }
 
@@ -56,7 +53,6 @@ class MovieService
         $query = Request::createQueryString($params);
         $response = $this->api->request('movie/popular', $query);
         if (!isset($response) || isset($response->success)) return false;
-        // TODO validar si quiero paginar esto y agregar query string
         return MoviePDO::populars($response);
     }
 }

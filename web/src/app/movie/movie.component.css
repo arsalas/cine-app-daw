@@ -1,0 +1,150 @@
+.backdrop {
+    height: 20rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    color: #eee;
+
+}
+
+.overview {
+    text-align: justify;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.icon-text>i {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+}
+
+.icon-text .rate {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.icon-text .total {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.rate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ratings {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.trailer iframe {
+    width: 100%;
+}
+
+.genres {
+    display: flex;
+
+}
+
+.genres>* {
+    margin-right: 1rem;
+}
+
+
+.rating-list li {
+    float: right;
+    color: #aaa;
+    padding: 10px 5px;
+    cursor: pointer;
+
+}
+
+.active-star {
+
+    color: #ffd700;
+}
+
+.rating-list li:hover,
+.rating-list li:hover~li {
+    color: #eee;
+}
+
+.rating-list {
+    display: inline-block;
+    list-style: none;
+}
+
+
+.review {
+    display: flex;
+    padding: 1rem;
+}
+
+.media img {
+    width: 50px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.review .title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.review .body {
+    padding-left: 1rem;
+    text-align: justify;
+}
+
+.review .icon-text,
+.review i {
+    font-size: 1rem;
+}
+
+.review .star {
+    color: #ffd700;
+}
+
+
+.review .title {
+    display: flex;
+}
+
+.review .name {
+    margin-right: 1rem;
+}
+
+.subtitle{
+    font-size: 1.2rem;
+}
+
+.buttons{
+    display: flex;
+
+}
+
+.buttons * {
+    margin-right: 1rem;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+}
+
+.title button{
+    margin-left: 1rem;
+}
+
+.pointer{
+	cursor: pointer;
+}

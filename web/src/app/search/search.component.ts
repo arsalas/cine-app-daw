@@ -7,7 +7,7 @@ import { MovieService } from '../movie/movie.service';
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss']
+    styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 
@@ -34,25 +34,17 @@ export class SearchComponent implements OnInit {
                 this.page = params['page'];
                 this.query = params['query'];
                 this.getMovies()
-            }
-
-            );
+            });
     }
 
     async getMovies() {
         const res = await this.movieSvc.search(this.query, this.page)
         this.totalPages = res.totalPages;
-        // this.movies = [...this.movies, ...res.results]
         this.movies = res.results
-        console.log(res)
-
     }
 
     async onSubmit(formData: Partial<{ query: string | null; }>): Promise<void> {
         if (!formData || !formData.query) return;
-        // this.page = 1;
-        // this.query = formData.query
-        // this.getMovies()
         this.router.navigate(['/search'],
         { queryParams: { query: formData.query, page: 1 } });
         
@@ -64,14 +56,5 @@ export class SearchComponent implements OnInit {
         { queryParams: { query: this.query, page } });
 
     }
-
-    // loadPage(){
-    //     console.log(1)
-    //     if (this.page == this.totalPages) return
-    //     console.log(2)
-    //     this.page++;
-    //     console.log(this.page)
-    //     this.getMovies();
-    // }
 
 }

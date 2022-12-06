@@ -54,7 +54,6 @@ require_once(dirname(__FILE__, 2) . '/src/app/favorite/FavoritePDO.php');
 
 // MOVIES
 require_once(dirname(__FILE__, 2) . '/src/app/movie/MovieController.php');
-require_once(dirname(__FILE__, 2) . '/src/app/movie/MovieModel.php');
 require_once(dirname(__FILE__, 2) . '/src/app/movie/MovieService.php');
 require_once(dirname(__FILE__, 2) . '/src/app/movie/MovieRoutes.php');
 require_once(dirname(__FILE__, 2) . '/src/app/movie/MoviePDO.php');

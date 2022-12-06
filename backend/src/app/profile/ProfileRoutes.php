@@ -15,7 +15,6 @@ class ProfileRoutes
 
     public function start($method, $endpoint)
     {
-        // call_user_func_array();
         if ($method == 'GET') $this->get($endpoint);
         if ($method == 'POST') $this->post($endpoint);
         if ($method == 'PUT') $this->put($endpoint);
